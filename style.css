@@ -1,0 +1,183 @@
+/* Body with doodle background */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #a2d5f2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 50px 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Floating doodles */
+.doodle {
+  position: absolute;
+  width: 70px;
+  height: 60px;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg);}
+  50% { transform: translateY(-20px) rotate(10deg);}
+  100% { transform: translateY(0px) rotate(0deg);}
+}
+
+/* Container as book page */
+.container {
+  background: rgba(255, 251, 230, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  border: 4px dashed #f7c59f;
+  z-index: 1;
+  position: relative;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #ff6f61;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #fff;
+}
+
+/* Input + button */
+input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px dashed #ffb347;
+  margin-right: 10px;
+  font-size: 1em;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+button {
+  padding: 10px 15px;
+  border: 2px dashed #ff6f61;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Task book */
+.todo-book {
+  background: #fffde7;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px dotted #ffb347;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05), 5px 10px 15px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Tasks */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background: #fff3e0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  font-size: 1em;
+  transition: all 0.2s;
+}
+
+li:nth-child(odd) {
+  background: #ffe0b2;
+}
+
+li:nth-child(even) {
+  background: #ffccbc;
+}
+
+li.completed {
+  text-decoration: line-through;
+  background: #d3ffd3;
+  color: #555;
+}
+
+li:hover {
+  transform: translateX(5px) rotate(-1deg);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Bottom status */
+#taskStatus {
+  text-align: center;
+  font-weight: bold;
+  color: #ff6f61;
+  font-style: italic;
+  margin-top: 15px;
+  padding: 5px;
+  background: #fff3e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive tweaks */
+@media (max-width: 500px) {
+  input { width: 100%; margin-bottom: 10px; }
+  button { width: 100%; }
+  .doodle { width: 30px; height: 30px; }
+}
+
+@media (max-width: 350px) {
+  .container { padding: 15px; }
+  h1 { font-size: 1.5em; }
+  li { font-size: 0.9em; }
+}
+/* --- MOBILE FIX ADDITIONS (ONLY ADD THIS) --- */
+
+/* Fix body alignment on small screens */
+@media (max-width: 600px) {
+  body {
+    align-items: stretch;
+    padding: 20px 10px;
+  }
+}
+
+/* Ensure input + button wrap properly */
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Prevent input overflow on mobile */
+input {
+  box-sizing: border-box;
+}
+
+/* Prevent container overflow */
+.container {
+  box-sizing: border-box;
+}
+
+/* Reduce animation overflow on mobile */
+@media (max-width: 500px) {
+  .doodle {
+    animation: none;
+  }
+}
